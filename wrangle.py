@@ -116,6 +116,8 @@ def clean_zillow(df):
     
     df = handle_nulls(df)
     df = float_to_int(df)
+    df['county'] = df['fips'].astype(str)
+    df['county'] = df['county'].replace(['6037.0', '6059.0', '6111.0'], ['Los Angeles', 'Orange', 'Ventura'])
     
     return df
 
